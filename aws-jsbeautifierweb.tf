@@ -29,7 +29,23 @@ provider "aws" {
 # CodePipeline resources
 resource "aws_s3_bucket" "build_artifact_bucket" {
   bucket = "${var.pipeline_name}-artifact-bucket"
-  acl    = "private"
+  acl    = "public-read"
+
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+
+    routing_rules = <<EOF
+[{
+    "Condition": {
+        "KeyPrefixEquals": "docs/"
+    },
+    "Redirect": {
+        "ReplaceKeyPrefixWith": "documents/"
+    }
+}]
+EOF
+  }
 }
 
 data "aws_iam_policy_document" "codepipeline_assume_policy" {
