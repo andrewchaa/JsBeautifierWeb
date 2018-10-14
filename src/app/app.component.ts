@@ -17,8 +17,7 @@ export class AppComponent {
     this._appService = appService;
   }
 
-  title = 'app';
-  jsonString = 'Paste your JSON here';
+  jsonString = '';
   pasteJson(): void {
     console.log('t');
     clipboard.readText().then(
