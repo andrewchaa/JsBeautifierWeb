@@ -26,6 +26,7 @@
     "clipboard-polyfill": "^2.5.4",
     "core-js": "^2.4.1",
     "cryptiles": "^4.1.2",
+    "highlight.js": "^9.13.1",
     "js-beautify": "^1.8.6",
     "ngx-bootstrap": "^3.0.1",
     "rxjs": "^5.5.2",

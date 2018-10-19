@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from './app.service';
 import clipboard from 'clipboard-polyfill';
 import beautify from 'js-beautify';
+import hljs from 'highlight.js';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +19,16 @@ export class AppComponent {
   }
 
   jsonString = '';
+  jsonHtml = '';
   pasteJson(): void {
     console.log('t');
     clipboard.readText().then(
-      txt => this.jsonString = beautify(txt, { indent_size: 4, space_in_empty_paren: true })
-    );
+      txt => {
+        const beautified = beautify(txt, { indent_size: 4, space_in_empty_paren: true });
+        const highlighted = hljs.highlight('javascript', beautified, true).value;
+        this.jsonString = beautified;
+        console.log(hljs.highlight('javascript', txt, true));
+        this.jsonHtml = highlighted;
+    });
   }
 }
