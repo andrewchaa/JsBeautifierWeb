@@ -24,11 +24,10 @@ export class AppComponent {
     console.log('t');
     clipboard.readText().then(
       txt => {
-        const beautified = beautify(txt, { indent_size: 4, space_in_empty_paren: true });
+        const beautified = beautify(txt, { indent_size: 2, space_in_empty_paren: true });
         const highlighted = hljs.highlight('javascript', beautified, true).value;
-        this.jsonString = beautified;
         console.log(hljs.highlight('javascript', txt, true));
-        this.jsonHtml = highlighted;
+        this.jsonHtml = '\n' + highlighted;
     });
   }
 }
