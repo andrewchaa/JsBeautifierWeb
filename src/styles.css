@@ -1,4 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~highlight.js/styles/rainbow.css";
 
-
+body {
+  color: #fff;
+  background-color: #474949;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"
+}
